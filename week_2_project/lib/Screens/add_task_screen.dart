@@ -5,15 +5,20 @@ class AddTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return  Scaffold(
+      appBar: AppBar(),
+    body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Center(
-        child: TextFormField(
+        child: TextField(
+
 
 
 
         ),
       ),
+    ),
+
     );
   }
 }

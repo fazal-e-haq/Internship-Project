@@ -9,12 +9,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget bui(BuildContext context) {
-    return Text('hi');
 
-  }
-
+  List task=[];
 
 
   @override
@@ -52,6 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ElevatedButton(
                         onPressed: () {
 
+                          showDialog(context: context, builder: (context){
+                            return AlertDialog(
+                              
+
+
+                              
+                            );
+                          });
 
 
                         },
@@ -64,19 +68,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 10),
 
-              ListTile(title: Text('hello'),
-                tileColor: Theme.of(context).colorScheme.secondary,
-                leading: Checkbox(value: false,onChanged: (value) => true,)
-
-                ,),
-
-
+             Expanded(child: ListView.builder(itemBuilder: (context, index) {
+               return ListTile();
+             },))
             ],
           ),
         ),
       ),
     );
-
-
   }
 }
