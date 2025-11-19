@@ -1,29 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:week_2_project/Screens/add_task_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-appBar: AppBar(title: Text('Home'),),
-      body: Column(
-        children: [
+  State<HomeScreen> createState() => _HomeScreenState();
+}
 
-        ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(Icons.home,size: 40,),
-            Icon(Icons.abc)
-          ],
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget bui(BuildContext context) {
+    return Text('hi');
+
+  }
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(title: Text('Home')),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.white70, Colors.grey],
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Today\n${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+
+
+
+                        },
+
+                        child: Text('Add New'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+
+              ListTile(title: Text('hello'),
+                tileColor: Theme.of(context).colorScheme.secondary,
+                leading: Checkbox(value: false,onChanged: (value) => true,)
+
+                ,),
+
+
+            ],
+          ),
         ),
       ),
-
     );
+
+
   }
 }
