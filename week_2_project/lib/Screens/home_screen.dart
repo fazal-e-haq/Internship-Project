@@ -47,15 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          
 
-                          showDialog(context: context, builder: (context){
-                            return AlertDialog(
-                              
-
-
-                              
-                            );
-                          });
 
 
                         },
@@ -74,7 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+
+
+
       ),
+
+
+
     );
   }
 }
