@@ -21,19 +21,21 @@ class LightTheme {
         headlineMedium: GoogleFonts.poppins(color: Color(0xff6368D9),fontWeight: FontWeight.w500,fontSize: 24,),
         bodyLarge: GoogleFonts.poppins(color: Color(0xffF6F2FF),fontWeight: FontWeight.w400,fontSize: 16,),
         bodyMedium: GoogleFonts.poppins(color: Color(0xff6368D9),fontWeight: FontWeight.w300,fontSize: 12,),
+     bodySmall: GoogleFonts.poppins(color: Color(0xffffffff),fontWeight: FontWeight.w600,fontSize: 16,),
       ),
 
 
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.grey.shade100,
+        fillColor: Color(0xffD1D0F9),
+        hintStyle: TextStyle(color: Color(0xff6368D9)),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey.shade300),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(100),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xFF013A63), width: 2),
-          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Color(0xFF6368D9), width: 1),
+          borderRadius: BorderRadius.circular(100),
         ),
       ),
     );

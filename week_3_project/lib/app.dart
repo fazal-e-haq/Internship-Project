@@ -14,6 +14,7 @@ theme: LightTheme.theme,
       themeMode: ThemeMode.light,
       onGenerateRoute: AppRoutes.generateRoute,
       initialRoute: AppRoutes.splash,
+
       home: SplashScreen(),
 
 
