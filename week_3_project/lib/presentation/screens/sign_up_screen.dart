@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsetsGeometry.symmetric(horizontal: 36),
               child: Column(
-              
+
                 children: [
                   const Image(image: AssetImage('assets/signup_pic.png')),
                   LoginTextfield(
