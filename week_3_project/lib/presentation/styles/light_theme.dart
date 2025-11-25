@@ -20,6 +20,7 @@ class LightTheme {
         headlineLarge:GoogleFonts.poppins(color: Color(0xff6368D9),fontWeight: FontWeight.bold,fontSize: 28,),
         headlineMedium: GoogleFonts.poppins(color: Color(0xff6368D9),fontWeight: FontWeight.w500,fontSize: 24,),
         bodyLarge: GoogleFonts.poppins(color: Color(0xffF6F2FF),fontWeight: FontWeight.w400,fontSize: 16,),
+        labelLarge: GoogleFonts.poppins(color: Color(0xff6368D9),fontWeight: FontWeight.w500,fontSize: 16,),
         bodyMedium: GoogleFonts.poppins(color: Color(0xff6368D9),fontWeight: FontWeight.w300,fontSize: 12,),
      bodySmall: GoogleFonts.poppins(color: Color(0xffffffff),fontWeight: FontWeight.w600,fontSize: 16,),
       ),
