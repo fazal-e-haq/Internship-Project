@@ -1,56 +1,91 @@
-# Flutter Learning Roadmap (Weeks 1-3)
+# 🚀 Flutter Learning Roadmap (Weeks 1-3)
 
-This repository contains exercises and projects for learning Flutter from basic UI building to data management and creating a small functional app.
+A simple roadmap to learn Flutter step by step, from basic UI to building a functional task management app.  
 
 ---
 
-## Week 1: Basic Flutter Development and UI Building
+## 🌟 Week 1: Basic Flutter & UI Building
 
-**Learning Objectives:**
-- Understand Flutter's basic structure.
-- Build simple and responsive user interfaces.
-- Learn navigation between screens.
+**Goals:**
+- Learn Flutter structure.
+- Build responsive UIs.
+- Navigate between screens.
 
 **Tasks:**
-1. **Set Up Environment**
-2. **Create a Basic UI**
-3. **Navigation Between Screens**
-4. **Form Validation**
+1. **Set Up Environment**  
+   - Install Flutter & VS Code/Android Studio.  
+   - Create a simple Flutter project.
 
-**Deliverables:**
-- Basic login app with navigation.
+2. **Build UI**  
+   - Login screen with email & password fields.  
+   - Add "Login" button & "Forgot Password?" text.  
+   - Use `Column`, `Row`, `Container`.
+
+3. **Navigation**  
+   - Create Home Screen.  
+   - Use `Navigator.push()` to move between screens.
+
+4. **Form Validation**  
+   - Check email format.  
+   - Ensure password is not empty.
+
+**Deliverables:**  
+- Login app with navigation.  
 - GitHub repo with code.
 
 ---
 
-## Week 2: Data Management and Persistent Storage
+## 🌟 Week 2: Data Management & Storage
 
-**Learning Objectives:**
-- Understand basic state management.
+**Goals:**
+- Understand state management.
 - Save and retrieve data locally.
 
 **Tasks:**
-1. **State Management Basics**
-2. **Persistent Data Storage**
-3. **Simple List App**
+1. **State Management**  
+   - Use `setState()` to manage widgets.  
+   - Create a simple counter app.
 
-**Deliverables:**
-- To-do list app with local storage.
-- GitHub repo with code and README.
+2. **Persistent Storage**  
+   - Use `SharedPreferences`.  
+   - Save counter value and load it on restart.
+
+3. **Simple To-Do App**  
+   - Add tasks.  
+   - Display tasks in `ListView`.  
+   - Save tasks with `SharedPreferences`.
+
+**Deliverables:**  
+- To-do list app with local storage.  
+- GitHub repo with code & README.
 
 ---
 
-## Week 3: Finishing Touches and Final Project
+## 🌟 Week 3: Final Project & Polish
 
-**Learning Objectives:**
-- Combine learned concepts into a functional app.
-- Test and debug the app.
+**Goals:**
+- Combine everything into one functional app.  
+- Test, debug, and enhance UI.
 
 **Tasks:**
-1. **Final Project: Task Management App**
-2. **Testing and Debugging**
-3. **UI Enhancements**
+1. **Task Management App**  
+   - Home screen with task list.  
+   - Add, delete, mark tasks as done.  
+   - Data saved using `SharedPreferences`.
 
-**Deliverables:**
-- Functional task management app.
-- GitHub repo with code and setup instructions.
+2. **Testing & Debugging**  
+   - Test navigation & data saving.  
+   - Use Flutter debugging tools.
+
+3. **UI Enhancements**  
+   - Custom app bar with title & add button.  
+   - Use `Icons` for better visuals.
+
+**Deliverables:**  
+- Functional task management app.  
+- GitHub repo with code & setup instructions.
+
+---
+
+✨ **Tip:** Commit your code after each milestone and keep your GitHub organized.  
+
