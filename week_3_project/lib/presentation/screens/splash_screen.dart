@@ -1,8 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:week_3_project/routes/app_routes.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _checkLogin();
+  }
+
+  void _checkLogin() async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    // Check if user is logged in
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      // User is logged in, navigate to Home
+      Navigator.pushReplacementNamed(context, '/bottomBar');
+    } else {
+      // User not logged in, navigate to SignIn
+      Navigator.pushReplacementNamed(context, '/signin');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,25 +37,18 @@ class SplashScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Column(
-            mainAxisAlignment: .center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(image: AssetImage('assets/splash_pic.png')),
+              Image.asset('assets/splash_pic.png'),
+              const SizedBox(height: 20),
               Text(
-                'Manage your task,\nquickly.',textAlign: TextAlign.center,
+                'Manage your task,\nquickly.',
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushReplacementNamed(context, AppRoutes.signin);
-
-        },
-        backgroundColor: Color(0xff6368D9),
-        shape: StadiumBorder(),
-        child: Icon(Icons.arrow_forward, color: Color(0xffEFEBFB), size: 35),
       ),
     );
   }

@@ -1,116 +1,161 @@
 import 'package:flutter/material.dart';
+import 'add_task_screen.dart'; // import your AddTaskScreen
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // Mutable task list
+  List<Map<String, String>> tasks = [
+    {'title': 'Buy groceries', 'time': '10:00 AM'},
+    {'title': 'Meeting with team', 'time': '1:00 PM'},
+    {'title': 'Workout', 'time': '6:00 PM'},
+    {'title': 'Read a book', 'time': '9:00 PM'},
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: .symmetric(horizontal: 26),
-            child: Column(
-              mainAxisAlignment: .start,
-              crossAxisAlignment: .start,
-              children: [
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: .start,
-                  children: [
-                    CircleAvatar(maxRadius: 35, backgroundColor: Colors.red),
-                    SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: .start,
+    return SafeArea(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Top container
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xff6368D9), Colors.deepPurple],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 15,
+                    offset: Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Hello, Fazal!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Today you have ${tasks.length} tasks',
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      const Icon(Icons.check_circle, color: Colors.white),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Completed: ${tasks.where((t) => t['done'] == 'true').length}',
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      const SizedBox(width: 20),
+                      const Icon(Icons.pending_actions, color: Colors.white),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Pending: ${tasks.where((t) => t['done'] != 'true').length}',
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 30),
+
+            // Add Task Button
+            Align(
+              alignment: Alignment.centerRight,
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.add),
+                label: const Text('Add Task'),
+                onPressed: () async {
+                  final newTask = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const AddTaskScreen(),
+                    ),
+                  );
+
+                  if (newTask != null) {
+                    setState(() {
+                      tasks.add(newTask); // add new task dynamically
+                    });
+                  }
+                },
+              ),
+            ),
+
+            const SizedBox(height: 20),
+            Text(
+              'Your Tasks',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const SizedBox(height: 20),
+
+            // Task list
+            Column(
+              children: tasks.map((task) {
+                return Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 4,
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  child: ListTile(
+                    leading:
+                    const Icon(Icons.task_alt, color: Colors.deepPurple),
+                    title: Text(task['title']!),
+                    subtitle: Text(task['description'] ?? task['time']!),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          'Hello,',
-                          style: TextStyle(fontSize: 18, fontWeight: .w500),
+                        IconButton(
+                          icon: const Icon(Icons.check, color: Colors.green),
+                          onPressed: () {
+                            setState(() {
+                              task['done'] = 'true'; // mark done
+                            });
+                          },
                         ),
-                        Text(
-                          'Fazal-e-haq',
-                          style: Theme.of(context).textTheme.headlineMedium,
+                        IconButton(
+                          icon: const Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            setState(() {
+                              tasks.remove(task); // delete task
+                            });
+                          },
                         ),
                       ],
                     ),
-                  ],
-                ),
-                SizedBox(height: 60),
-                Text(
-                  'Let’s check out your today’s task',
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
-                SizedBox(height: 8),
-                Container(
-                  width: double.infinity,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    color: Color(0xff6368D9),
-                    borderRadius: BorderRadius.circular(30),
                   ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  'Task Categories',
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
-                Wrap(
-                  alignment: .spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Container(
-                        height: 80,
-                        width: 130,
-                        color: Colors.red,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Container(
-                        height: 80,
-                        width: 130,
-                        color: Colors.red,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Container(
-                        height: 80,
-                        width: 130,
-                        color: Colors.red,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Container(
-                        height: 80,
-                        width: 130,
-                        color: Colors.red,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Container(
-                        height: 80,
-                        width: 130,
-                        color: Colors.red,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Container(
-                        height: 80,
-                        width: 130,
-                        color: Colors.red,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                );
+              }).toList(),
             ),
-          ),
+          ],
         ),
       ),
     );

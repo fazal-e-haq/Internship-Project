@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
-   LoginButton({super.key,required this.onTap});
+   LoginButton({super.key,required this.onTap,required this.text});
 GestureTapCallback onTap;
+String text;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -14,7 +15,7 @@ GestureTapCallback onTap;
           color: Color(0xff6368D9),
           borderRadius: BorderRadius.circular(100)
         ),
-        child: Center(child: Text('SignIn',style: Theme.of(context).textTheme.bodySmall,)),
+        child: Center(child: Text(text,style: Theme.of(context).textTheme.bodySmall,)),
       ),
     );
   }

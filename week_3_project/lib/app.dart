@@ -12,8 +12,9 @@ class TaskManagementApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 theme: LightTheme.theme,
       themeMode: ThemeMode.light,
-      onGenerateRoute: AppRoutes.generateRoute,
-      initialRoute: AppRoutes.splash,
+
+      initialRoute: '/Splash',
+        routes: appRoutes,
 
       home: SplashScreen(),
 
