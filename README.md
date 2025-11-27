@@ -85,7 +85,3 @@ A simple roadmap to learn Flutter step by step, from basic UI to building a func
 - Functional task management app.  
 - GitHub repo with code & setup instructions.
 
----
-
-✨ **Tip:** Commit your code after each milestone and keep your GitHub organized.  
-
